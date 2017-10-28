@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".WorkActivity"></activity>
+        <activity android:name=".work.WorkActivity"></activity>
     </application>
 
 </manifest>

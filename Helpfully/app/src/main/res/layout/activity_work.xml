@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="16"
-    tools:context="com.helpfully.WorkActivity">
+    tools:context="com.helpfully.work.WorkActivity">
 
     <LinearLayout
-        android:weightSum="5"
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:context="com.helpfully.WorkActivity">
+        android:layout_weight="1"
+        android:weightSum="5"
+        tools:context="com.helpfully.work.WorkActivity">
 
         <TextView
             android:layout_width="0dp"
@@ -35,7 +35,7 @@
         android:layout_weight="5"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:context="com.helpfully.WorkActivity">
+        tools:context="com.helpfully.work.WorkActivity">
 
         <EditText
             android:id="@+id/descriptonInput"
@@ -50,7 +50,7 @@
         android:weightSum="5"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:context="com.helpfully.WorkActivity">
+        tools:context="com.helpfully.work.WorkActivity">
 
         <TextView
             android:layout_width="0dp"
@@ -60,10 +60,11 @@
             android:textAlignment="center" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/paymentInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
+            android:editable="true"
             android:ems="10"
             android:inputType="number" />
 
@@ -73,10 +74,10 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:context="com.helpfully.WorkActivity">
+        tools:context="com.helpfully.work.WorkActivity">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/SendButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dodaj" />
