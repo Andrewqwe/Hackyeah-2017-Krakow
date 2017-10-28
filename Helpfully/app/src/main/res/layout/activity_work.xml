@@ -10,17 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8">
-        <ImageButton
-            android:id="@+id/advertImageButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-    <LinearLayout
-        android:weightSum="5"
         android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:weightSum="5"
         tools:context="com.helpfully.work.WorkActivity">
 
         <TextView
