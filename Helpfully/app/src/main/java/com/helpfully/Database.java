@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.helpfully.work.Work;
 
 /**
  * Created by Radoslaw on 2017-10-28.
@@ -17,16 +18,24 @@ public class Database {
     //Firebase instance variables
     static private FirebaseDatabase mDatabase;
     static private DatabaseReference mDatabaseReference;
-    static final private String users_dir = "users";
+    static final private String USERS_DIR = "users";
+    private static final String WORKS_DIR = "works";
 
-    public static void Initialize(boolean persistence) {
+    public static String getWorksDir() {
+        return WORKS_DIR;
+    }
+    public static String getUserDir() {
+        return USERS_DIR + "/" + getUserUID();
+    }
+
+    public static void initialize(boolean persistence) {
         if (mDatabase == null) {
             mDatabase = FirebaseDatabase.getInstance();
             mDatabase.setPersistenceEnabled(persistence);
         }
     }
 
-    static public DatabaseReference SetLocation(String path) {
+    static public DatabaseReference setLocation(String path) {
         DatabaseReference mDatabaseReference = mDatabase.getReference().child(path);
         return mDatabaseReference;
     }
@@ -35,7 +44,7 @@ public class Database {
      * Metoda publiczna pobierająca z bazy UID użytkownika
      * @return String UID lub null gdy użytkownik nie jest zalogowany
      */
-    static public String GetUserUID() {
+    static public String getUserUID() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
@@ -45,7 +54,7 @@ public class Database {
     }
 
 
-    static public String[]  GetUserInfo(){
+    static public String[] getUserInfo(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // Name, email address
@@ -61,19 +70,28 @@ public class Database {
         return null;
     }
 
+    public static void sendWorkToDatabase(Object work) {
+        initialize(true);
+        DatabaseReference worksReference = setLocation(getWorksDir());
+        DatabaseReference usersReference = setLocation(getUserDir());
+        DatabaseReference newWorksReference = worksReference.push();
+        String workID = newWorksReference.getKey();
+        worksReference.child(workID).setValue(work);
+        usersReference.child(WORKS_DIR).setValue(workID);
+    }
 
-    static public void SendUserInfoToDatabase() {
-        Initialize(true);
-        DatabaseReference users = SetLocation(users_dir);
+    static public void sendUserInfoToDatabase() {
+        initialize(true);
+        DatabaseReference users = setLocation(USERS_DIR);
         users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.child(GetUserUID()).exists()) {
+                if (snapshot.child(getUserUID()).exists()) {
                     // run some code
                 }else{
-                    String[] details = GetUserInfo();
+                    String[] details = getUserInfo();
                     User user = new User(details[0],details[1]);
-                    mDatabaseReference.child(GetUserUID()).setValue(user);
+                    mDatabaseReference.child(getUserUID()).setValue(user);
                 }
             }
 
@@ -82,6 +100,6 @@ public class Database {
 
             }
         });
-        // mDatabaseReference.child(GetUserUID()).child("pesel").setValue(pesel); - podmienianie tylko gałęzi pesel (można warunek if zrobić i sprawdzać czy pesel != null i dopiero wtedy podmieniać) to już zależy od metody zrobienia panelu do wprowadzania danych
+        // mDatabaseReference.child(getUserUID()).child("pesel").setValue(pesel); - podmienianie tylko gałęzi pesel (można warunek if zrobić i sprawdzać czy pesel != null i dopiero wtedy podmieniać) to już zależy od metody zrobienia panelu do wprowadzania danych
     }
 }
