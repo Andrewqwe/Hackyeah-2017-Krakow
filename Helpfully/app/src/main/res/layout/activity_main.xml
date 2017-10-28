@@ -25,13 +25,15 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@color/colorAccent" />
+            app:srcCompat="@drawable/workicon" />
+
         <ImageButton
             android:id="@+id/imageButtonShare"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@color/colorPrimaryDark" />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/shareicon" />
     </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
