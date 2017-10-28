@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "392219109860",
+    "firebase_url": "https://helpfully-88d6b.firebaseio.com",
+    "project_id": "helpfully-88d6b",
+    "storage_bucket": "helpfully-88d6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392219109860:android:a00b82f3f212b196",
+        "android_client_info": {
+          "package_name": "com.helpfully"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392219109860-gqlpeihbk4f8udmrg2pu2tpdajqi4ne2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXuv3ws_5FjLe6rgzu0Fmk3zGPVeRW72s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392219109860-gqlpeihbk4f8udmrg2pu2tpdajqi4ne2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
