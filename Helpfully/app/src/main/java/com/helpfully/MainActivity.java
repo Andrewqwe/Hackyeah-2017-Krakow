@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         if (auth.getCurrentUser() != null) {
             // already signed in
             Toast.makeText(this,FirebaseAuth.getInstance().getCurrentUser().toString(),Toast.LENGTH_SHORT).show();
-            Database.SendUserInfoToDatabase();
+           // Database.SendUserInfoToDatabase(); //TODO: wrzucić dane do bazy danych
         } else {
             // not signed in
             startActivityForResult(
