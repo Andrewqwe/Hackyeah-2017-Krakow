@@ -42,6 +42,9 @@ public class Work implements Advertable{
         this.date = date;
     }
 
+    public Work() {
+    }
+
     public Work(String title, String description, int payment, String URL) {
         this.title = title;
         this.description = description;
