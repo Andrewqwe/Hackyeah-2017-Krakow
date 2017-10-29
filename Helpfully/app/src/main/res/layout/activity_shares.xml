@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="16"
+    tools:context="com.helpfully.share.ShareActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8">
+        <ImageButton
+            android:id="@+id/advertImageButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="5"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:context="com.helpfully.share.ShareActivity">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Tytuł"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/titleInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:context="com.helpfully.share.ShareActivity">
+
+        <EditText
+            android:id="@+id/descriptonInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="2"
+        android:weightSum="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:context="com.helpfully.share.ShareActivity">
+
+        <Button
+            android:id="@+id/SendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dodaj" />
+
+    </LinearLayout>
+
+</LinearLayout>

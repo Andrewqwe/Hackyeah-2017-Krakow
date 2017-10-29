@@ -7,13 +7,12 @@ import java.util.ArrayList;
  */
 
 public class User {
-    private ArrayList<String> works = new ArrayList<>();
-
-    public User(ArrayList<String> works) {
-        this.works = works;
-    }
+    private ArrayList<String> works;
+    private ArrayList<String> shares;
 
     public User() {
+        works = new ArrayList<>();
+        shares = new ArrayList<>();
     }
 
     public ArrayList<String> getWorks() {
@@ -26,6 +25,18 @@ public class User {
 
     public void addWorks(String workID) {
         works.add(workID);
+    }
+
+    public ArrayList<String> getShares() {
+        return shares;
+    }
+
+    public void setShares(ArrayList<String> shares) {
+        this.shares = shares;
+    }
+
+    public void addShare(String shareID) {
+        shares.add(shareID);
     }
 }
 

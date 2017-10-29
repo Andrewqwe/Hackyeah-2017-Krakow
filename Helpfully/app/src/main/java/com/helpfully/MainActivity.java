@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+import com.helpfully.share.ShareActivity;
 import com.helpfully.work.WorkActivity;
 
 import java.util.Arrays;
@@ -62,7 +63,15 @@ public class MainActivity extends AppCompatActivity {
         imageButtonMyAdverts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StartMyAdverts();
+                startMyAdverts();
+            }
+        });
+
+        ImageButton imageButtonShare = findViewById(R.id.imageButtonShare);
+        imageButtonShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startShare();
             }
         });
     }
@@ -75,7 +84,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, WorkActivity.class));
     }
 
-    private void StartMyAdverts(){
+    private void startMyAdverts(){
         startActivity(new Intent(this, MyAdvertsActivity.class));
+    }
+
+    private void startShare(){
+        startActivity(new Intent(this, ShareActivity.class));
     }
 }
