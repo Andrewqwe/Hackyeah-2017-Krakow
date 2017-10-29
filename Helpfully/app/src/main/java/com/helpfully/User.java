@@ -1,28 +1,31 @@
 package com.helpfully;
 
+import java.util.ArrayList;
+
 /**
  * Created by Radoslaw on 2017-10-28.
  */
 
 public class User {
-        public String name;
-        public String email;
-        public String pesel;
-        public String phonenumber;
+    private ArrayList<String> works = new ArrayList<>();
 
-        public User() {}
-
-        public User(String name,String email, String pesel, String phonenumber) {
-            this.email = email;
-            this.name = name;
-            this.pesel = pesel;
-            this.phonenumber = phonenumber;
-        }
-
-        public User(String name,String email) {
-            this.email = email;
-            this.name = name;
-        }
-
+    public User(ArrayList<String> works) {
+        this.works = works;
     }
+
+    public User() {
+    }
+
+    public ArrayList<String> getWorks() {
+        return works;
+    }
+
+    public void setWorks(ArrayList<String> works) {
+        this.works = works;
+    }
+
+    public void addWorks(String workID) {
+        works.add(workID);
+    }
+}
 
