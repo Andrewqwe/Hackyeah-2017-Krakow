@@ -2,6 +2,8 @@ package com.helpfully.work;
 
 import com.helpfully.Database;
 
+import org.json.JSONObject;
+
 import java.util.Date;
 
 /**
@@ -18,6 +20,7 @@ public class Work {
     private String URL;
     private int counter;
     private Date date;
+
 
 
     public Work(String title, String description, int payment) {

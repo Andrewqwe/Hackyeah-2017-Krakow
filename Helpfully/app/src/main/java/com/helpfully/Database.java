@@ -10,6 +10,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.helpfully.work.Work;
 
+import java.util.ArrayList;
+
 /**
  * Created by Radoslaw on 2017-10-28.
  */
@@ -70,36 +72,37 @@ public class Database {
         return null;
     }
 
-    public static void sendWorkToDatabase(Object work) {
+    public static void sendWorkToDatabase(Object work, User user) {
         initialize(true);
         DatabaseReference worksReference = setLocation(getWorksDir());
         DatabaseReference usersReference = setLocation(getUserDir());
         DatabaseReference newWorksReference = worksReference.push();
         String workID = newWorksReference.getKey();
         worksReference.child(workID).setValue(work);
-        usersReference.child(WORKS_DIR).setValue(workID);
+        user.addWorks(workID);
+        usersReference.setValue(user);
     }
 
-    static public void sendUserInfoToDatabase() {
-        initialize(true);
-        DatabaseReference users = setLocation(USERS_DIR);
-        users.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.child(getUserUID()).exists()) {
-                    // run some code
-                }else{
-                    String[] details = getUserInfo();
-                    User user = new User(details[0],details[1]);
-                    mDatabaseReference.child(getUserUID()).setValue(user);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        // mDatabaseReference.child(getUserUID()).child("pesel").setValue(pesel); - podmienianie tylko gałęzi pesel (można warunek if zrobić i sprawdzać czy pesel != null i dopiero wtedy podmieniać) to już zależy od metody zrobienia panelu do wprowadzania danych
-    }
+//    static public void sendUserInfoToDatabase() {
+//        initialize(true);
+//        DatabaseReference users = setLocation(USERS_DIR);
+//        users.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                if (snapshot.child(getUserUID()).exists()) {
+//                    // run some code
+//                }else{
+//                    String[] details = getUserInfo();
+//                    User user = new User(details[0],details[1]);
+//                    mDatabaseReference.child(getUserUID()).setValue(user);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//        // mDatabaseReference.child(getUserUID()).child("pesel").setValue(pesel); - podmienianie tylko gałęzi pesel (można warunek if zrobić i sprawdzać czy pesel != null i dopiero wtedy podmieniać) to już zależy od metody zrobienia panelu do wprowadzania danych
+//    }
 }
