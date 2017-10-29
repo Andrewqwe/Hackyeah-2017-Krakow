@@ -57,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
                 startWork();
             }
         });
+
+        ImageButton imageButtonMyAdverts = findViewById(R.id.imageButtonMy);
+        imageButtonMyAdverts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StartMyAdverts();
+            }
+        });
     }
 
     private void startSettings() {
@@ -65,5 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void startWork() {
         startActivity(new Intent(this, WorkActivity.class));
+    }
+
+    private void StartMyAdverts(){
+        startActivity(new Intent(this, MyAdvertsActivity.class));
     }
 }

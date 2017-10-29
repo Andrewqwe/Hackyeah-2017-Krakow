@@ -25,7 +25,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/workicon" />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/a1" />
 
         <ImageButton
             android:id="@+id/imageButtonShare"
@@ -33,7 +34,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/shareicon" />
+            app:srcCompat="@drawable/a2" />
     </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
@@ -47,13 +48,16 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@color/colorPrimaryDark" />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/a4" />
+
         <ImageButton
             android:id="@+id/imageButtonSettings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@color/colorAccent" />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/a3" />
     </LinearLayout>
 
 </LinearLayout>
