@@ -22,9 +22,13 @@ public class Database {
     static private DatabaseReference mDatabaseReference;
     static final private String USERS_DIR = "users";
     private static final String WORKS_DIR = "works";
+    private static final String SHARE_DIR = "shares";
 
     public static String getWorksDir() {
         return WORKS_DIR;
+    }
+    public static String getShareDir() {
+        return SHARE_DIR;
     }
     public static String getUserDir() {
         return USERS_DIR + "/" + getUserUID();
@@ -80,6 +84,17 @@ public class Database {
         String workID = newWorksReference.getKey();
         worksReference.child(workID).setValue(work);
         user.addWorks(workID);
+        usersReference.setValue(user);
+    }
+
+    public static void sendShareToDatabase(Object share, User user) {
+        initialize(true);
+        DatabaseReference sharesReference = setLocation(getShareDir());
+        DatabaseReference usersReference = setLocation(getUserDir());
+        DatabaseReference newSharesReference = sharesReference.push();
+        String shareID = newSharesReference.getKey();
+        sharesReference.child(shareID).setValue(share);
+        user.addShare(shareID);
         usersReference.setValue(user);
     }
 

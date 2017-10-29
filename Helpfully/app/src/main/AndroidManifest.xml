@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".work.WorkActivity" />
-        <activity android:name=".MyAdvertsActivity"></activity>
+        <activity android:name=".MyAdvertsActivity"/>
+        <activity android:name=".share.ShareActivity"/>
     </application>
 
 </manifest>
