@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by Damian on 28.10.2017.
  */
 
-public class Work {
+public class Work implements Advertable{
     private String title;
     private String description;
     private int payment;
