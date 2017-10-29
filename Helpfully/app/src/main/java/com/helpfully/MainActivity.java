@@ -1,15 +1,17 @@
 package com.helpfully;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+import com.helpfully.work.WorkActivity;
 
 import java.util.Arrays;
-
-import static android.widget.Toast.LENGTH_LONG;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         if (auth.getCurrentUser() != null) {
             // already signed in
             Toast.makeText(this,FirebaseAuth.getInstance().getCurrentUser().toString(),Toast.LENGTH_SHORT).show();
-           // Database.SendUserInfoToDatabase(); //TODO: wrzucić dane do bazy danych
+           // Database.sendUserInfoToDatabase(); //TODO: wrzucić dane do bazy danych
         } else {
             // not signed in
             startActivityForResult(
@@ -39,6 +41,29 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(this,FirebaseAuth.getInstance().getCurrentUser().toString(),Toast.LENGTH_SHORT).show();
+
+        ImageButton imageButtonSettings = findViewById(R.id.imageButtonSettings);
+        imageButtonSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startSettings();
+            }
+        });
+
+        ImageButton imageButtonWork = findViewById(R.id.imageButtonWork);
+        imageButtonWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startWork();
+            }
+        });
+    }
+
+    private void startSettings() {
+        startActivity(new Intent(this, SettingsActivity.class));
+    }
+
+    private void startWork() {
+        startActivity(new Intent(this, WorkActivity.class));
     }
 }
